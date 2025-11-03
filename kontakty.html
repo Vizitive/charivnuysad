@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти — Чарівний сад</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3fff3;
+      color: #333;
+    }
+
+    /* ===== Верхня панель ===== */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #a8ff78, #78ffd6);
+      padding: 12px 20px;
+      flex-wrap: wrap;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .top-bar .left,
+    .top-bar .right {
+      flex: 1 1 100%;
+      margin-bottom: 6px;
+    }
+
+    .top-bar a {
+      color: #4026a7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .social img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+
+    /* ===== Заголовок ===== */
+    header {
+      background: linear-gradient(90deg, #00ff87, #00c45f, #40e36d);
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    /* ===== Основна частина ===== */
+    main {
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      padding: 25px;
+      margin: 20px auto;
+      max-width: 700px;
+      border: 4px solid transparent;
+      background-image: linear-gradient(white, white),
+        linear-gradient(90deg, #64f38c, #43e97b, #38ef7d);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+
+    .contact-card h2 {
+      color: #2e7d32;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .contact-info a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .map {
+      margin-top: 25px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    /* ===== Кнопки ===== */
+    .back-button {
+      display: inline-block;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(56, 249, 215, 0.4);
+    }
+
+    .back-button:hover {
+      background: linear-gradient(90deg, #32b92b, #1ee8a7);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 16px rgba(50, 185, 43, 0.5);
+    }
+
+    footer {
+      background: linear-gradient(90deg, #a8ff78, #78ffd6);
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      color: #333;
+      margin-top: 40px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 26px;
+      }
+      .contact-info p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Верхня панель -->
+  <div class="top-bar">
+    <div class="left">
+      <strong>
+        <a href="https://maps.app.goo.gl/erQDmZ4zzp6rZTqb8" target="_blank">
+          Тийгласький заклад дошкільної освіти "Чарівний сад"
+        </a>
+      </strong><br>
+      Сюртівської сільської ради Ужгородського району<br>
+      Години прийому директора: пн 14.00–16.00, чт 14.00–16.00
+    </div>
+    <div class="right">
+      Тел:<br>
+      Email: <a href="mailto:teglasiovoda@ukr.net">teglasiovoda@ukr.net</a><br>
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=100087264011099" target="_blank">
+          <img src="icon-facebook-1.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Заголовок -->
+  <header>
+    <h1>Контакти</h1>
+  </header>
+
+  <!-- Основна частина -->
+  <main>
+    <div class="contact-card">
+      <h2>Наші контактні дані</h2>
+      <div class="contact-info">
+        <p><strong>Адреса:</strong> вулиця Сечені, 8, село Тийглаш, Ужгородський район, Закарпатська область</p>
+        <p><strong>Телефон:</strong> <a href="tel:+380000000000">+380 (00) 000-00-00</a></p>
+        <p><strong>Email:</strong> <a href="mailto:teglasiovoda@ukr.net">teglasiovoda@ukr.net</a></p>
+        <p><strong>Facebook:</strong> 
+          <a href="https://www.facebook.com/profile.php?id=100087264011099" target="_blank">Сторінка Чарівного саду</a>
+        </p>
+      </div>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=Тийглаш,+Закарпатська+область&output=embed"></iframe>
+      </div>
+
+      <a href="index.html" class="back-button">⬅ На головну</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Тийгласький ЗДО "Чарівний сад"
+  </footer>
+
+</body>
+</html>
+
