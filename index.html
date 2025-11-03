@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чарівний сад</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7fff8;
+      color: #333;
+    }
+
+    /* ===== Верхня панель ===== */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #fff, #fff, #fff);
+      padding: 12px 20px;
+      flex-wrap: wrap;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .top-bar .left,
+    .top-bar .right {
+      flex: 1 1 75%;
+      margin-bottom: 6px;
+    }
+
+    .top-bar a {
+      color: #4026a7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .social img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+
+    /* ===== Логотип ===== */
+    .logo {
+      text-align: center;
+      background: #fff;
+      padding: 0px 0 10px 0;
+      margin-top: 0;
+    }
+
+    .logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    /* ===== Меню ===== */
+    nav {
+      background: linear-gradient(90deg, #00ff87, #00c45f, #009e4b);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 22px;
+      font-weight: bold;
+      transition: all 0.3s;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    nav a:hover {
+      background: rgba(52, 255, 58, 0.2);
+      transform: scale(1.05);
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: linear-gradient(90deg, #00ff87, #00c45f);
+      min-width: 200px;
+      flex-direction: column;
+      z-index: 10;
+      border-radius: 0 0 8px 8px;
+    }
+
+    nav ul li:hover > ul {
+      display: flex;
+    }
+
+    nav ul ul a {
+      padding: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* ===== Наші групи ===== */
+    .groups {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(180deg, #fff, #fff);
+    }
+
+    .groups h2 {
+      font-size: 38px;
+      color: #222;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .group-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    /* ===== Картка групи ===== */
+    .group-card {
+      position: relative;
+      background: linear-gradient(135deg, #00ff87, #00b712);
+      color: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      width: 380px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .group-card img {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .group-card p {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 26px;
+      font-weight: bold;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+      z-index: 2;
+      width: 100%;
+    }
+
+    .group-card:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    /* ===== Картинки ===== */
+    .group-card.left img {
+      left: 65px;
+      top: 55%;
+      transform: translateY(-50%);
+      width: 180px;
+    }
+
+    .group-card.top img {
+      top: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+    }
+
+    /* ===== Адаптивність ===== */
+    @media (max-width: 768px) {
+      .top-bar { text-align: center; justify-content: center; }
+      nav ul { flex-direction: column; }
+      nav ul ul { position: static; }
+      .group-cards { flex-direction: column; align-items: center; }
+      .group-card { width: 90%; height: 250px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Верхня панель -->
+  <div class="top-bar">
+    <div class="left">
+      <strong>
+        <a href="https://maps.app.goo.gl/erQDmZ4zzp6rZTqb8" target="_blank">
+          Тийгласький заклад дошкільної освіти "Чарівний сад"
+        </a>
+      </strong><br>
+      Сюртівської сільської ради Ужгородського району<br>
+      Години прийому директора: пн 14.00–16.00, чт 14.00–16.00
+    </div>
+    <div class="right">
+      Тел:<br>
+      Email: <a href="mailto:teglasiovoda@ukr.net">teglasiovoda@ukr.net</a><br>
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=100087264011099" target="_blank">
+          <img src="icon-facebook-1.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Логотип -->
+  <div class="logo">
+    <img src="Logo6.png" alt="Логотип">
+  </div>
+
+  <!-- Меню -->
+  <nav>
+    <ul>
+      <li><a href="#">Головна</a></li>
+      <li><a href="#">Про нас</a>
+        <ul>
+          <li><a href="#">Історія закладу</a></li>
+          <li><a href="#">Педагогічний колектив</a></li>
+          <li><a href="#">Наші досягнення</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Освітній процес</a>
+        <ul>
+          <li><a href="#">Розклад занять</a></li>
+          <li><a href="#">Програми навчання</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Групи</a>
+        <ul>
+          <li><a href="veselka.html">Група Веселка</a></li>
+          <li><a href="bilochka.html">Група Білочка</a></li>
+        </ul>
+      </li>
+      <li><a href="bezpeka.html">Безпека під час війни</a></li>
+      <li><a href="#">Контакти</a></li>
+    </ul>
+  </nav>
+
+  <!-- Наші групи -->
+  <section class="groups">
+    <h2>Наші групи</h2>
+    <div class="group-cards">
+      <a href="bilochka.html" class="group-card left">
+        <img src="belka3.png" alt="Білочка">
+        <p>Білочка</p>
+      </a>
+
+      <a href="veselka.html" class="group-card top">
+        <img src="Rainbow5.png" alt="Веселка">
+        <p>Веселка</p>
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>
