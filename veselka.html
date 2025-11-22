@@ -63,10 +63,10 @@
       height: auto;
       border-radius: 18px;
       object-fit: contain;
-
-      /* 🔥 ВИРІВНЯННЯ ФОТО */
       margin: 0 auto;
       display: block;
+      opacity: 1;
+      transition: opacity 0.75s ease-in-out; /* Плавний перехід */
     }
 
     /* Кнопки */
@@ -84,6 +84,7 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.25);
       transition: 0.25s;
+	  z-index: 2;
     }
 
     .nav-btn:hover {
@@ -140,58 +141,61 @@
   </footer>
 
   <script>
-const photos = [
-  { src: "photos_v/v5.jpg", caption: "Кожен день яскравий, бо ми — Веселка! 🌈" },
-  { src: "photos_v/v1.jpg", caption: "" },
-  { src: "photos_v/v2.jpg", caption: "" },
-  { src: "photos_v/v3.jpg", caption: "" },
-  { src: "photos_v/v4.jpg", caption: "" },
-  { src: "photos_v/v6.jpg", caption: "" },
-  { src: "photos_v/v7.jpg", caption: "" },
-  { src: "photos_v/v8.jpg", caption: "" },
-  { src: "photos_v/v9.jpg", caption: "" },
-  { src: "photos_v/v10.jpg", caption: "" },
-  { src: "photos_v/v11.jpg", caption: "" },
-  { src: "photos_v/v12.jpg", caption: "" },
-  { src: "photos_v/v13.jpg", caption: "" },
-  { src: "photos_v/v14.jpg", caption: "" },
-  { src: "photos_v/v15.jpg", caption: "" },
-  { src: "photos_v/v16.jpg", caption: "" },
-  { src: "photos_v/v17.jpg", caption: "" },
-  { src: "photos_v/v18.jpg", caption: "" },
-  { src: "photos_v/v19.jpg", caption: "" },
-  { src: "photos_v/v20.jpg", caption: "" },
-  { src: "photos_v/v21.jpg", caption: "" },
-  { src: "photos_v/v22.jpg", caption: "" },
-  { src: "photos_v/v23.jpg", caption: "" },
-  { src: "photos_v/v24.jpg", caption: "" }
-];
+    const photos = [
+      { src: "photos_v/v5.jpg", caption: "Кожен день яскравий, бо ми — Веселка! 🌈" },
+      { src: "photos_v/v1.jpg", caption: "" },
+      { src: "photos_v/v2.jpg", caption: "" },
+      { src: "photos_v/v3.jpg", caption: "" },
+      { src: "photos_v/v4.jpg", caption: "" },
+      { src: "photos_v/v6.jpg", caption: "" },
+      { src: "photos_v/v7.jpg", caption: "" },
+      { src: "photos_v/v8.jpg", caption: "" },
+      { src: "photos_v/v9.jpg", caption: "" },
+      { src: "photos_v/v10.jpg", caption: "" },
+      { src: "photos_v/v11.jpg", caption: "" },
+      { src: "photos_v/v12.jpg", caption: "" },
+      { src: "photos_v/v13.jpg", caption: "" },
+      { src: "photos_v/v14.jpg", caption: "" },
+      { src: "photos_v/v15.jpg", caption: "" },
+      { src: "photos_v/v16.jpg", caption: "" },
+      { src: "photos_v/v17.jpg", caption: "" },
+      { src: "photos_v/v18.jpg", caption: "" },
+      { src: "photos_v/v19.jpg", caption: "" },
+      { src: "photos_v/v20.jpg", caption: "" },
+      { src: "photos_v/v21.jpg", caption: "" },
+      { src: "photos_v/v22.jpg", caption: "" },
+      { src: "photos_v/v23.jpg", caption: "" },
+      { src: "photos_v/v24.jpg", caption: "" }
+    ];
 
-let current = 0;
+    let current = 0;
 
-function showPhoto(index) {
-  const img = document.getElementById("photo");
-  const cap = document.getElementById("caption");
+    function showPhoto(index) {
+      const img = document.getElementById("photo");
+      const cap = document.getElementById("caption");
 
-  img.style.opacity = 0;
+      img.style.opacity = 0; // Почати зміну прозорості (фейд-аут)
 
-  setTimeout(() => {
-    img.src = photos[index].src;
-    cap.textContent = photos[index].caption || "";
-    img.style.opacity = 1;
-  }, 200);
-}
+      setTimeout(() => {
+        img.src = photos[index].src;  // Змінити джерело фото
+        cap.textContent = photos[index].caption || ""; // Оновити підпис
+        img.style.opacity = 1; // Плавно відобразити нове фото (фейд-ін)
+      }, 200);  // Затримка перед зміною зображення
+    }
 
-function nextPhoto() {
-  current = (current + 1) % photos.length;
-  showPhoto(current);
-}
+    function nextPhoto() {
+      current = (current + 1) % photos.length;
+      showPhoto(current);
+    }
 
-function prevPhoto() {
-  current = (current - 1 + photos.length) % photos.length;
-  showPhoto(current);
-}
-</script>
+    function prevPhoto() {
+      current = (current - 1 + photos.length) % photos.length;
+      showPhoto(current);
+    }
+  </script>
+</body>
+</html>
+
 
 
 
