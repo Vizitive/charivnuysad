@@ -52,8 +52,6 @@
       width: 100%;
       border-radius: 22px;
       padding: 8px;
-
-      /* Помаранчевий градієнт */
       background: linear-gradient(90deg, #ff8a00, #ffa84d, #ffcc80, #ff8a00);
       box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     }
@@ -67,7 +65,8 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
-      transition: opacity 0.22s ease;
+      opacity: 1;
+      transition: opacity 0.75s ease-in-out; /* Плавний перехід */
     }
 
     /* Кнопки */
@@ -85,6 +84,7 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.25);
       transition: 0.25s;
+      z-index: 2; /* Завжди поверх */
     }
 
     .nav-btn:hover {
@@ -141,54 +141,56 @@
   </footer>
 
   <script>
-const photos = [
-  { src: "photos_b/b0.jpg", caption: "Наша весела і дружна група «Білочка» 🐿️" },
-  { src: "photos_b/b1.jpg", caption: "" },
-  { src: "photos_b/b2.jpg", caption: "" },
-  { src: "photos_b/b3.jpg", caption: "" },
-  { src: "photos_b/b4.jpg", caption: "" },
-  { src: "photos_b/b5.jpg", caption: "" },
-  { src: "photos_b/b6.jpg", caption: "" },
-  { src: "photos_b/b7.jpg", caption: "" },
-  { src: "photos_b/b8.jpg", caption: "" },
-  { src: "photos_b/b9.jpg", caption: "" },
-  { src: "photos_b/b10.jpg", caption: "" },
-  { src: "photos_b/b11.jpg", caption: "" },
-  { src: "photos_b/b12.jpg", caption: "" },
-  { src: "photos_b/b13.jpg", caption: "" },
-  { src: "photos_b/b14.jpg", caption: "" },
-  { src: "photos_b/b15.jpg", caption: "" },
-  { src: "photos_b/b16.jpg", caption: "" }
-];
+    const photos = [
+      { src: "photos_b/b0.jpg", caption: "Наша весела і дружна група «Білочка» 🐿️" },
+      { src: "photos_b/b1.jpg", caption: "" },
+      { src: "photos_b/b2.jpg", caption: "" },
+      { src: "photos_b/b3.jpg", caption: "" },
+      { src: "photos_b/b4.jpg", caption: "" },
+      { src: "photos_b/b5.jpg", caption: "" },
+      { src: "photos_b/b6.jpg", caption: "" },
+      { src: "photos_b/b7.jpg", caption: "" },
+      { src: "photos_b/b8.jpg", caption: "" },
+      { src: "photos_b/b9.jpg", caption: "" },
+      { src: "photos_b/b10.jpg", caption: "" },
+      { src: "photos_b/b11.jpg", caption: "" },
+      { src: "photos_b/b12.jpg", caption: "" },
+      { src: "photos_b/b13.jpg", caption: "" },
+      { src: "photos_b/b14.jpg", caption: "" },
+      { src: "photos_b/b15.jpg", caption: "" },
+      { src: "photos_b/b16.jpg", caption: "" }
+    ];
 
-let current = 0;
+    let current = 0;
 
-function showPhoto(index) {
-  const img = document.getElementById("photo");
-  const cap = document.getElementById("caption");
+    function showPhoto(index) {
+      const img = document.getElementById("photo");
+      const cap = document.getElementById("caption");
 
-  img.style.opacity = 0;
+      img.style.opacity = 0; // Почати зміну прозорості (фейд-аут)
 
-  setTimeout(() => {
-    img.src = photos[index].src;
-    cap.textContent = photos[index].caption || "";
-    img.style.opacity = 1;
-  }, 200);
-}
+      setTimeout(() => {
+        img.src = photos[index].src; // Змінити джерело фото
+        cap.textContent = photos[index].caption || ""; // Оновити підпис
+        img.style.opacity = 1; // Плавно відобразити нове фото (фейд-ін)
+      }, 200); // Затримка перед зміною зображення
+    }
 
-function nextPhoto() {
-  current = (current + 1) % photos.length;
-  showPhoto(current);
-}
+    function nextPhoto() {
+      current = (current + 1) % photos.length;
+      showPhoto(current);
+    }
 
-function prevPhoto() {
-  current = (current - 1 + photos.length) % photos.length;
-  showPhoto(current);
-}
-</script>
+    function prevPhoto() {
+      current = (current - 1 + photos.length) % photos.length;
+      showPhoto(current);
+    }
+  </script>
 
 </body>
 </html>
+
+
 
 
 
