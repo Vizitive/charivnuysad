@@ -1,136 +1,124 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Група "Білочка" — Чарівний сад</title>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3fff3;
+      font-family: "Comic Sans MS", "Arial", sans-serif;
+      background-color: #fff9f2;
+      text-align: center;
       color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
-    /* Верхня панель */
     .top-bar {
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #ffb36b, #ff8a00, #ff5e00);
-      padding: 12px 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      background: linear-gradient(90deg, #ff8a00, #ffa84d, #ffcc80, #ff8a00);
+      padding: 10px 20px;
+      text-align: left;
     }
 
     .top-bar a {
-      color: #fff;
       text-decoration: none;
+      color: #8a3c00;
       font-weight: bold;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .top-bar a:hover {
-      text-shadow: 0 0 8px rgba(255,255,255,0.8);
     }
 
     header {
-      background: linear-gradient(135deg, #ffb36b, #ff8a00, #ff5e00);
-      color: white;
-      text-align: center;
-      padding: 25px 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      background: linear-gradient(90deg, #ff8a00, #ffa84d, #ffcc80, #ff8a00);
+      color: #fff;
+      padding: 30px 10px;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
     header h1 {
-      font-size: 32px;
       margin: 0;
+      font-size: 36px;
     }
 
     main {
-      flex: 1;
-      padding: 30px 20px;
-      text-align: center;
+      padding: 40px 20px;
     }
 
-    /* --- ГАЛЕРЕЯ --- */
-
-    .gallery {
+    /* Фото-блок */
+    .photo-block {
       position: relative;
-      max-width: 840px;
-      height: 650px;
-      margin: 30px auto;
-      background: white;
-      border-radius: 15px;
+      display: inline-block;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 22px;
+      padding: 8px;
 
-      /* КОЛЬОРОВА РАМКА */
-      border: 6px solid #ff8a00;
-
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      overflow: hidden;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      /* Помаранчевий градієнт */
+      background: linear-gradient(90deg, #ff8a00, #ffa84d, #ffcc80, #ff8a00);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     }
 
-    .gallery img {
-      max-width: 820px;
+    .photo-block img {
+      width: 100%;
+      max-width: 800px;
       max-height: 600px;
-      border-radius: 10px;
-      transition: opacity 0.4s ease;
+      height: auto;
+      border-radius: 18px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      transition: opacity 0.22s ease;
     }
 
-    .gallery button {
+    /* Кнопки */
+    .nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: linear-gradient(135deg, #ff8a00, #ff5e00);
-      border: none;
-      color: white;
+      background: white;
+      border: 3px solid #ffcf9a;
+      color: #ff8a00;
       font-size: 28px;
-      padding: 10px 16px;
       border-radius: 50%;
+      width: 55px;
+      height: 55px;
       cursor: pointer;
-      transition: 0.3s;
-      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: 0.25s;
     }
 
-    .gallery button:hover {
+    .nav-btn:hover {
+      background: #ffe5c8;
       transform: translateY(-50%) scale(1.12);
-      background: linear-gradient(135deg, #ff5e00, #ffae00);
     }
 
-    .prev { left: 12px; }
-    .next { right: 12px; }
+    .nav-btn.left { left: 20px; }
+    .nav-btn.right { right: 20px; }
 
-    /* ПІДПИС ПІД ФОТО */
     .caption {
-      margin-top: 8px;
+      background: #ffffffdd;
+      padding: 18px;
+      font-size: 17px;
       font-style: italic;
-      color: #333;
-      font-size: 18px;
+      border-radius: 0 0 14px 14px;
     }
 
     footer {
-      background: linear-gradient(90deg, #ffb36b, #ff8a00);
-      text-align: center;
-      padding: 12px;
-      font-size: 14px;
-      color: #fff;
-      margin-top: auto;
+      margin-top: 60px;
+      padding: 15px;
+      background: linear-gradient(90deg, #ff8a00, #ffa84d, #ffcc80, #ff8a00);
+      color: #333;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
     }
 
+    @media (max-width: 768px) {
+      header h1 { font-size: 28px; }
+      .nav-btn { width: 45px; height: 45px; font-size: 22px; }
+    }
   </style>
 </head>
-<body>
 
+<body>
   <div class="top-bar">
     <a href="index.html">⬅ На головну</a>
   </div>
@@ -140,19 +128,12 @@
   </header>
 
   <main>
-
-    <div class="gallery">
-
-      <button class="prev" onclick="prevImage()">❮</button>
-
-      <img id="galleryImage" src="photos_b/b0.jpg" alt="Фото групи Білочка">
-
-      <button class="next" onclick="nextImage()">❯</button>
-
+    <div class="photo-block">
+      <button class="nav-btn left" onclick="prevPhoto()">❮</button>
+      <img id="photo" src="photos_b/b0.jpg" alt="Фото групи Білочка">
+      <button class="nav-btn right" onclick="nextPhoto()">❯</button>
+      <div class="caption" id="caption">Наша весела і дружна група «Білочка» 🐿️️</div>
     </div>
-
-    <div class="caption" id="caption">Наша весела і дружна група «Білочка» 🐿️</div>
-
   </main>
 
   <footer>
@@ -160,37 +141,54 @@
   </footer>
 
   <script>
-    const images = [
-      { src: "photos_b/b0.jpg", caption: "Наша весела і дружна група «Білочка» 🐿️" },
-    ];
+const photos = [
+  { src: "photos_b/b0.jpg", caption: "Наша весела і дружна група «Білочка» 🐿️" },
+  { src: "photos_b/b1.jpg", caption: "" },
+  { src: "photos_b/b2.jpg", caption: "" },
+  { src: "photos_b/b3.jpg", caption: "" },
+  { src: "photos_b/b4.jpg", caption: "" },
+  { src: "photos_b/b5.jpg", caption: "" },
+  { src: "photos_b/b6.jpg", caption: "" },
+  { src: "photos_b/b7.jpg", caption: "" },
+  { src: "photos_b/b8.jpg", caption: "" },
+  { src: "photos_b/b9.jpg", caption: "" },
+  { src: "photos_b/b10.jpg", caption: "" },
+  { src: "photos_b/b11.jpg", caption: "" },
+  { src: "photos_b/b12.jpg", caption: "" },
+  { src: "photos_b/b13.jpg", caption: "" },
+  { src: "photos_b/b14.jpg", caption: "" },
+  { src: "photos_b/b15.jpg", caption: "" },
+  { src: "photos_b/b16.jpg", caption: "" }
+];
 
-    let current = 0;
+let current = 0;
 
-    function showImage(index) {
-      const img = document.getElementById("galleryImage");
-      const cap = document.getElementById("caption");
+function showPhoto(index) {
+  const img = document.getElementById("photo");
+  const cap = document.getElementById("caption");
 
-      img.style.opacity = 0;
+  img.style.opacity = 0;
 
-      setTimeout(() => {
-        img.src = images[index].src;
-        cap.textContent = images[index].caption || "";
-        img.style.opacity = 1;
-      }, 200);
-    }
+  setTimeout(() => {
+    img.src = photos[index].src;
+    cap.textContent = photos[index].caption || "";
+    img.style.opacity = 1;
+  }, 200);
+}
 
-    function nextImage() {
-      current = (current + 1) % images.length;
-      showImage(current);
-    }
+function nextPhoto() {
+  current = (current + 1) % photos.length;
+  showPhoto(current);
+}
 
-    function prevImage() {
-      current = (current - 1 + images.length) % images.length;
-      showImage(current);
-    }
-  </script>
+function prevPhoto() {
+  current = (current - 1 + photos.length) % photos.length;
+  showPhoto(current);
+}
+</script>
 
 </body>
 </html>
+
 
 
