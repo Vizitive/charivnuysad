@@ -1,22 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url>
-  <loc>https://charivnysad.pp.ua/</loc>
-  <lastmod>2025-12-18</lastmod>
-  <priority>1.00</priority>
-</url>
-
-<url><loc>https://charivnysad.pp.ua/Istoriya.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/kolektuv.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/bullying.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/news.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/Rozporyadok.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/Programa.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/veselka.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/bilochka.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/bezpeka.html</loc></url>
-<url><loc>https://charivnysad.pp.ua/kontakty.html</loc></url>
-
+  <url>
+    <loc>https://charivnysad.pp.ua/</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/Istoriya.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/kolektuv.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/bullying.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/news.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/Rozporyadok.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/Programa.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/veselka.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/bilochka.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/bezpeka.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://charivnysad.pp.ua/kontakty.html</loc>
+    <lastmod>2025-12-18</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
-
