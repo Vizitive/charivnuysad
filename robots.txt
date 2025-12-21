@@ -2,6 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://charivnysad.pp.ua/sitemap.xml
-
-# Контакти для пошукових роботів
-# Email: teglasiovoda@ukr.net
