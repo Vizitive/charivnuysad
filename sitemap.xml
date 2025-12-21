@@ -1,58 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://charivnysad.pp.ua/</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/Istoriya.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/kolektuv.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/bullying.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/news.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/Rozporyadok.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/Programa.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/veselka.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/bilochka.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/bezpeka.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://charivnysad.pp.ua/kontakty.html</loc>
-    <lastmod>2025-12-18</lastmod>
-    <priority>0.80</priority>
-  </url>
+    <!-- Головна сторінка -->
+    <url>
+        <loc>https://charivnysad.pp.ua/</loc>
+        <lastmod>2025-12-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Інші сторінки -->
+    <url>
+        <loc>https://charivnysad.pp.ua/index.html</loc>
+        <lastmod>2025-12-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <url>
+        <loc>https://charivnysad.pp.ua/Istoriya.html</loc>
+        <lastmod>2025-12-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://charivnysad.pp.ua/kolektuv.html</loc>
+        <lastmod>2025-12-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://charivnysad.pp.ua/bullying.html</loc>
+        <lastmod>2025-12-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Додайте всі інші сторінки -->
 </urlset>
