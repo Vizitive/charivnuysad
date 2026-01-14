@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
 <title>Новини</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -248,64 +249,63 @@
     <div class="pagination">
         <span class="page-btn active-page" onclick="loadPage(1)">1</span>
         <span class="page-btn" onclick="loadPage(2)">2</span>
+		<span class="page-btn" onclick="loadPage(3)">3</span>
     </div>
 </div>
 
 <footer>© 2025 Тийгласький ЗДО "Чарівний сад"</footer>
 
 <script>
-    const pages = {
-        1: [
-            { id: 1, photo: "photos_v/v19.jpg", title: "Свято осені", date: "10.10.2025", text: "Барвисте та тепле свято з виступами дітей та творчими номерами." },
-            { id: 2, photo: "photos_v/v20.jpg", title: "Ярмарок добрих справ", date: "15.10.2025", text: "Діти виготовляли поробки та проводили доброчинний ярмарок." },
-            { id: 3, photo: "photos_v/v21.jpg", title: "Тиждень безпеки", date: "20.10.2025", text: "Практичні заняття, ігри та знайомство з правилами безпеки." }
-        ],
-        2: [
-            { id: 4, photo: "photos_v/v22.jpg", title: "День здоров'я", date: "25.10.2025", text: "Естафети, рухливі ігри та спортивні розваги." },
-            { id: 5, photo: "photos_v/v23.jpg", title: "Казковий ранок", date: "30.10.2025", text: "Костюми, театралізація та чарівна атмосфера." },
-            { id: 6, photo: "photos_v/v24.jpg", title: "Музичний фестиваль", date: "05.11.2025", text: "Пісні, танці та знайомство з музичними інструментами." }
-        ]
-    };
+const pages = {
+    1: [
+        { id: 1, photo: "news/n1.jpg", title: "Різдвяний концерт", date: "24.12.2025", text: "24 грудня 2025 року в Тийглаському ЗДО «Чарівний сад » відбувся святковий концерт, де звучали різдвяні пісні, колядки та віршики.  " },
+        { id: 2, photo: "news/n2.jpg", title: "День Святого Миколая", date: "05.12.2025", text: "5 грудня в Тийглаському ЗДО «Чарівний сад»  святкували День Святого Миколая." },
+        { id: 3, photo: "news/n4.jpg", title: "Протидія булінгу", date: "26.11.2025", text: "26 листопада у Тийглаському ЗДО «Чарівний сад» проведено виховну годину «Що таке «добре», а що таке «погано» »" }
+    ],
+    2: [
+        { id: 4, photo: "news/n5.jpg", title: "День захисту дітей", date: "20.11.2025", text: "20 листопада в Тийглаському ЗДО «Чарівний сад» відбулося одне із найбільш дитячих свят у світі- це свято дитинства, захисту життя та радості." },
+        { id: 5, photo: "photos_v/v20.jpg", title: "Тиждень безпеки дорожнього руху", date: "13.11.2025", text: "13 листопада Світлана Теменко провела  інформаційно-просвітницький захід «Засвітись у темряві»" },
+        { id: 6, photo: "news/n3.jpg", title: "День української мови та писемності", date: "27.10.2025", text: "27 жовтня вихованці Тийгласького ЗДО продемонстрували свою любов до української мови." }
+    ],
+    3: [
+        { id: 7, photo: "photos_v/v5.jpg", title: "Свято «Золота осінь»", date: "23.10.2025", text: "23 жовтня 2025 р. у Тийглаському ЗДО «Чарівний сад» відбулося осіннє свято «Золота осінь»." },
+        { id: 8, photo: "photos_v/v19.jpg", title: "Виховний захід: «Сортування сміття - це важливо» ", date: "19.09.2025", text: "Діти та працівники Тийгласького ЗДО долучилися до ЕКОМАРАФОНУ до Всесвітнього Дня Землі. " }
+    ]
+};
 
-    function loadPage(page) {
-        const box = document.getElementById("events");
-        box.classList.add("fade-out");
+function loadPage(page) {
+    const box = document.getElementById("events");
+    if (!pages[page]) return;
 
-        setTimeout(() => {
-            box.innerHTML = pages[page].map(event => `
-                <div class="event-item">
-                    <div class="event-content">
-                        <img class="event-photo" src="${event.photo}" alt="${event.title}">
-                        <div class="event-info">
-                            <div class="event-date">${event.date}</div>
-                            <div class="event-title">${event.title}</div>
-                            <div class="event-text">${event.text}</div>
-                            <a class="details-btn" href="event${event.id}.html">Детальніше</a>
-                        </div>
+    box.classList.add("fade-out");
+
+    setTimeout(() => {
+        box.innerHTML = pages[page].map(event => `
+            <div class="event-item">
+                <div class="event-content">
+                    <img class="event-photo" src="${event.photo}" alt="${event.title}">
+                    <div class="event-info">
+                        <div class="event-date">${event.date}</div>
+                        <div class="event-title">${event.title}</div>
+                        <div class="event-text">${event.text}</div>
+                        <a class="details-btn" href="event${event.id}.html">Детальніше</a>
                     </div>
                 </div>
-            `).join("");
+            </div>
+        `).join("");
 
-            document.querySelectorAll(".page-btn")
-                .forEach(btn => btn.classList.remove("active-page"));
-            document.querySelectorAll(".page-btn")[page - 1]
-                .classList.add("active-page");
+        document.querySelectorAll(".page-btn").forEach(btn => {
+            btn.classList.toggle(
+                "active-page",
+                btn.textContent == page
+            );
+        });
 
-            box.classList.remove("fade-out");
-            box.classList.add("fade-in");
+        box.classList.remove("fade-out");
+        box.classList.add("fade-in");
+        setTimeout(() => box.classList.remove("fade-in"), 400);
+    }, 300);
+}
 
-            setTimeout(() => box.classList.remove("fade-in"), 400);
-        }, 300);
-    }
-
-    loadPage(1);
+loadPage(1);
 </script>
-
-</body>
-</html>
-
-
-
-
-
-
