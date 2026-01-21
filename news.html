@@ -2,7 +2,6 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
 <title>Новини</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,11 +36,10 @@
         color: white;
         cursor: pointer;
         text-decoration: underline;
+        user-select: none;
     }
 
-    .back-text:hover {
-        color: #f1fff4;
-    }
+    .back-text:hover { color: #f1fff4; }
 
     .container {
         flex: 1;
@@ -60,20 +58,10 @@
         border-bottom: 2px solid #e8f8ef;
     }
 
-    .events-container {
-        transition: 0.3s ease;
-        opacity: 1;
-    }
+    .events-container { transition: 0.3s ease; opacity: 1; }
+    .fade-out { opacity: 0; }
+    .fade-in { opacity: 1; }
 
-    .fade-out {
-        opacity: 0;
-    }
-
-    .fade-in {
-        opacity: 1;
-    }
-
-    /* Офіційна рамка з градієнтною межею */
     .event-item {
         border-radius: 8px;
         margin: 30px 0;
@@ -87,9 +75,7 @@
     .event-item::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        top: 0; left: 0; right: 0;
         height: 4px;
         background: linear-gradient(90deg, #43e97b, #38f9d7);
     }
@@ -109,11 +95,11 @@
         border-radius: 6px;
         flex-shrink: 0;
         border: 1px solid #e0f5e9;
+        background: #f0faf5;
+        display: block;
     }
 
-    .event-info {
-        flex: 1;
-    }
+    .event-info { flex: 1; }
 
     .event-date {
         color: #43e97b;
@@ -136,7 +122,6 @@
         margin-bottom: 20px;
     }
 
-    /* Кнопка "Детальніше" з градієнтом */
     .details-btn {
         display: inline-block;
         padding: 10px 25px;
@@ -158,7 +143,6 @@
         background: linear-gradient(90deg, #38d76b, #2ce7c5);
     }
 
-    /* Пагінація */
     .pagination {
         text-align: center;
         margin: 40px 0 20px;
@@ -177,6 +161,8 @@
         color: #0e744e;
         border: 1px solid #c9f0db;
         transition: all 0.2s;
+        user-select: none;
+        display: inline-block;
     }
 
     .page-btn:hover {
@@ -202,40 +188,18 @@
         margin-top: 40px;
     }
 
-    /* Адаптивність для мобільних */
     @media (max-width: 768px) {
-        .event-content {
-            flex-direction: column;
-        }
-        
-        .event-photo {
-            width: 100%;
-            height: 250px;
-        }
-        
-        header {
-            font-size: 26px;
-            padding: 20px;
-        }
-        
-        .back-text {
-            font-size: 16px;
-            left: 15px;
-        }
-        
-        h2 {
-            font-size: 24px;
-        }
-        
-        .event-title {
-            font-size: 22px;
-        }
+        .event-content { flex-direction: column; }
+        .event-photo { width: 100%; height: 250px; }
+        header { font-size: 26px; padding: 20px; }
+        .back-text { font-size: 16px; left: 15px; }
+        h2 { font-size: 24px; }
+        .event-title { font-size: 22px; }
     }
 </style>
 </head>
 
 <body>
-
 <header>
     Новини
     <div class="back-text" onclick="history.back()">Назад</div>
@@ -247,9 +211,9 @@
     <div id="events" class="events-container"></div>
 
     <div class="pagination">
-        <span class="page-btn active-page" onclick="loadPage(1)">1</span>
-        <span class="page-btn" onclick="loadPage(2)">2</span>
-		<span class="page-btn" onclick="loadPage(3)">3</span>
+        <span class="page-btn active-page" data-page="1">1</span>
+        <span class="page-btn" data-page="2">2</span>
+        <span class="page-btn" data-page="3">3</span>
     </div>
 </div>
 
@@ -257,55 +221,71 @@
 
 <script>
 const pages = {
-    1: [
-        { id: 1, photo: "news/n1.jpg", title: "Різдвяний концерт", date: "24.12.2025", text: "24 грудня 2025 року в Тийглаському ЗДО «Чарівний сад » відбувся святковий концерт, де звучали різдвяні пісні, колядки та віршики.  " },
-        { id: 2, photo: "news/n2.jpg", title: "День Святого Миколая", date: "05.12.2025", text: "5 грудня в Тийглаському ЗДО «Чарівний сад»  святкували День Святого Миколая." },
-        { id: 3, photo: "news/n4.jpg", title: "Протидія булінгу", date: "26.11.2025", text: "26 листопада у Тийглаському ЗДО «Чарівний сад» проведено виховну годину «Що таке «добре», а що таке «погано» »" }
-    ],
-    2: [
-        { id: 4, photo: "news/n5.jpg", title: "День захисту дітей", date: "20.11.2025", text: "20 листопада в Тийглаському ЗДО «Чарівний сад» відбулося одне із найбільш дитячих свят у світі- це свято дитинства, захисту життя та радості." },
-        { id: 5, photo: "photos_v/v20.jpg", title: "Тиждень безпеки дорожнього руху", date: "13.11.2025", text: "13 листопада Світлана Теменко провела  інформаційно-просвітницький захід «Засвітись у темряві»" },
-        { id: 6, photo: "news/n3.jpg", title: "День української мови та писемності", date: "27.10.2025", text: "27 жовтня вихованці Тийгласького ЗДО продемонстрували свою любов до української мови." }
-    ],
-    3: [
-        { id: 7, photo: "photos_v/v5.jpg", title: "Свято «Золота осінь»", date: "23.10.2025", text: "23 жовтня 2025 р. у Тийглаському ЗДО «Чарівний сад» відбулося осіннє свято «Золота осінь»." },
-        { id: 8, photo: "photos_v/v19.jpg", title: "Виховний захід: «Сортування сміття - це важливо» ", date: "19.09.2025", text: "Діти та працівники Тийгласького ЗДО долучилися до ЕКОМАРАФОНУ до Всесвітнього Дня Землі. " }
-    ]
+  1: [
+    { id: 1, photo: "news/n1.jpg", title: "Різдвяний концерт", date: "24.12.2025", text: "24 грудня 2025 року в Тийглаському ЗДО «Чарівний сад» відбувся святковий концерт, де звучали різдвяні пісні, колядки та віршики." },
+    { id: 2, photo: "news/n2.jpg", title: "День Святого Миколая", date: "05.12.2025", text: "5 грудня в Тийглаському ЗДО «Чарівний сад» святкували День Святого Миколая." },
+    { id: 3, photo: "news/n4.jpg", title: "Протидія булінгу", date: "26.11.2025", text: "26 листопада у Тийглаському ЗДО «Чарівний сад» проведено виховну годину «Що таке «добре», а що таке «погано»»." }
+  ],
+  2: [
+    { id: 4, photo: "news/n5.jpg", title: "День захисту дітей", date: "20.11.2025", text: "20 листопада в Тийглаському ЗДО «Чарівний сад» відбулося одне із найбільш дитячих свят у світі — свято дитинства, захисту життя та радості." },
+    { id: 5, photo: "photos_v/v20.jpg", title: "Тиждень безпеки дорожнього руху", date: "13.11.2025", text: "13 листопада проведено інформаційно-просвітницький захід «Засвітись у темряві»." },
+    { id: 6, photo: "news/n3.jpg", title: "День української мови та писемності", date: "27.10.2025", text: "27 жовтня вихованці Тийгласького ЗДО продемонстрували свою любов до української мови." }
+  ],
+  3: [
+    { id: 7, photo: "photos_v/v5.jpg", title: "Свято «Золота осінь»", date: "23.10.2025", text: "23 жовтня 2025 р. у Тийглаському ЗДО «Чарівний сад» відбулося осіннє свято «Золота осінь»." },
+    { id: 8, photo: "photos_v/v19.jpg", title: "Виховний захід: «Сортування сміття - це важливо»", date: "19.09.2025", text: "Діти та працівники Тийгласького ЗДО долучилися до ЕКОМАРАФОНУ до Всесвітнього Дня Землі." }
+  ]
 };
 
-function loadPage(page) {
-    const box = document.getElementById("events");
-    if (!pages[page]) return;
+function renderEvents(page){
+  const box = document.getElementById("events");
+  const data = pages[page];
+  if (!data) return;
 
-    box.classList.add("fade-out");
-
-    setTimeout(() => {
-        box.innerHTML = pages[page].map(event => `
-            <div class="event-item">
-                <div class="event-content">
-                    <img class="event-photo" src="${event.photo}" alt="${event.title}">
-                    <div class="event-info">
-                        <div class="event-date">${event.date}</div>
-                        <div class="event-title">${event.title}</div>
-                        <div class="event-text">${event.text}</div>
-                        <a class="details-btn" href="event${event.id}.html">Детальніше</a>
-                    </div>
-                </div>
-            </div>
-        `).join("");
-
-        document.querySelectorAll(".page-btn").forEach(btn => {
-            btn.classList.toggle(
-                "active-page",
-                btn.textContent == page
-            );
-        });
-
-        box.classList.remove("fade-out");
-        box.classList.add("fade-in");
-        setTimeout(() => box.classList.remove("fade-in"), 400);
-    }, 300);
+  box.innerHTML = data.map(event => `
+    <div class="event-item">
+      <div class="event-content">
+        <img class="event-photo" src="${event.photo}" alt="${event.title}">
+        <div class="event-info">
+          <div class="event-date">${event.date}</div>
+          <div class="event-title">${event.title}</div>
+          <div class="event-text">${event.text}</div>
+          <a class="details-btn" href="event${event.id}.html">Детальніше</a>
+        </div>
+      </div>
+    </div>
+  `).join("");
 }
+
+function setActivePage(page){
+  document.querySelectorAll(".page-btn").forEach(btn => {
+    const p = Number(btn.dataset.page);
+    btn.classList.toggle("active-page", p === page);
+  });
+}
+
+function loadPage(page){
+  const box = document.getElementById("events");
+  if (!pages[page]) return;
+
+  box.classList.add("fade-out");
+
+  setTimeout(() => {
+    renderEvents(page);
+    setActivePage(page);
+
+    box.classList.remove("fade-out");
+    box.classList.add("fade-in");
+    setTimeout(() => box.classList.remove("fade-in"), 400);
+  }, 250);
+}
+
+document.querySelectorAll(".page-btn").forEach(btn => {
+  btn.addEventListener("click", () => loadPage(Number(btn.dataset.page)));
+});
 
 loadPage(1);
 </script>
+
+</body>
+</html>
