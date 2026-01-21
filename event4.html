@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Детальніше</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
+
+<style>
+  body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:#f9fdfa;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:#333;
+  }
+
+  header{
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+    padding: 25px;
+    text-align:center;
+    font-size: 32px;
+    color:#fff;
+    font-weight:bold;
+    position:relative;
+  }
+
+  .back-text{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
+    font-weight:normal;
+    color:white;
+    cursor:pointer;
+    text-decoration:underline;
+    user-select:none;
+  }
+  .back-text:hover{ color:#f1fff4; }
+
+  main{
+    flex:1;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .post{
+    border-radius: 8px;
+    overflow:hidden;
+    background:white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    border: 1px solid #e0f5e9;
+    position:relative;
+  }
+
+  .post::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:4px;
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+  }
+
+  .post-head{
+    padding: 22px 25px 10px;
+  }
+
+  .date{
+    color:#43e97b;
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  h1{
+    margin:0 0 8px;a
+    font-size: 28px;
+    color:#0e744e;
+    font-weight:bold;
+  }
+
+  .subtitle{
+    color:#0e744e;
+    opacity:.75;
+    font-size:14px;
+  }
+
+  .hero{
+  width: 90%;
+  max-width: 820px;
+  max-height: 420px;
+  height: auto;
+
+  object-fit: cover;
+
+  display: block;
+  margin: 15px auto 0 auto;
+
+  background:#f0faf5;
+  border: 1px solid #e0f5e9;
+  border-radius: 8px;
+}
+
+
+  .content{
+    padding: 22px 25px;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .content p{ margin: 0 0 14px; }
+
+  .gallery-title{
+    text-align:center;
+    font-size: 24px;
+    margin: 10px 0 18px;
+    color:#0e744e;
+    font-weight:bold;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8f8ef;
+  }
+
+  .grid{
+    padding: 0 25px 26px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .thumb{
+    background:white;
+    border: 1px solid #e0f5e9;
+    border-radius: 6px;
+    overflow:hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    cursor:pointer;
+    transition: .2s;
+  }
+  .thumb:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+  }
+
+  .thumb img{
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+    display:block;
+    background:#f0faf5;
+  }
+
+  footer{
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+    padding: 20px;
+    text-align:center;
+    font-size:16px;
+    color:white;
+    margin-top: 40px;
+  }
+
+  /* Lightbox */
+  .lb{
+    position:fixed;
+    inset:0;
+    background: rgba(0,0,0,.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    padding: 18px;
+  }
+  .lb.open{ display:flex; }
+  .lb img{
+    max-width: min(1100px, 96vw);
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    background:#fff;
+  }
+  .lb .close{
+    position:absolute;
+    top: 14px;
+    right: 16px;
+    color:#fff;
+    font-size: 34px;
+    cursor:pointer;
+    user-select:none;
+    line-height:1;
+  }
+
+  @media(max-width: 768px){
+    header{ font-size: 26px; padding: 20px; }
+    .back-text{ font-size:16px; left: 15px; }
+    .grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media(max-width: 520px){
+    .grid{ grid-template-columns: 1fr; }
+    .thumb img{ height: 230px; }
+  }
+</style>
+</head>
+
+<body>
+<header>
+  Новини
+  <div class="back-text" onclick="location.href='news.html'">Назад</div>
+</header>
+
+<main>
+  <div class="post">
+    <div class="post-head">
+      <div class="date">20.11.2025</div>
+      <h1>День захисту дітей</h1>
+      <div class="subtitle">Тийгласький ЗДО «Чарівний сад»</div>
+    </div>
+
+    <img class="hero" src="news/n5.jpg" alt="Головне фото">
+
+    <div class="content">
+      <p>Міжнародний день захисту дітей – це свято, яке нагадує всім дорослим про важливість турботи, любові й підтримки для кожної дитини. Це день яскравих усмішок, веселощів, обіймів і щирих побажань. Бажаємо кожній дитині, мирного неба над головою, здійснення мрій, веселих та надійних друзів, безтурботного дитинства.Нехай дитячі посмішки освітлюють нашу планету, і кожен з її маленьких мешканців буде здоровим, щасливим, зігрітим любов'ю рідних сердець!</p>
+    </div>
+
+    <div class="gallery-title">Галерея зображень</div>
+
+    <div class="grid" id="grid">
+      <div class="thumb"><img src="news/n28.jpg" alt=""></div>
+      <div class="thumb"><img src="news/n29.jpg" alt=""></div>
+	  <div class="thumb"><img src="news/n43.jpg" alt=""></div>
+      <div class="thumb"><img src="news/n44.jpg" alt=""></div>
+	  <div class="thumb"><img src="news/n45.jpg" alt=""></div>
+      <div class="thumb"><img src="news/n46.jpg" alt=""></div>
+	  <div class="thumb"><img src="news/n47.jpg" alt=""></div>
+      <div class="thumb"><img src="news/n48.jpg" alt=""></div>
+	  <div class="thumb"><img src="news/n49.jpg" alt=""></div>
+      <div class="thumb"><img src="news/n50.jpg" alt=""></div>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Тийгласький ЗДО "Чарівний сад"</footer>
+
+<div class="lb" id="lb">
+  <div class="close" id="lbClose">×</div>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lbImg");
+  const lbClose = document.getElementById("lbClose");
+
+  document.getElementById("grid").addEventListener("click", (e) => {
+    const img = e.target.closest("img");
+    if (!img) return;
+    lbImg.src = img.src;
+    lb.classList.add("open");
+  });
+
+  lbClose.addEventListener("click", () => lb.classList.remove("open"));
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb) lb.classList.remove("open");
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") lb.classList.remove("open");
+  });
+</script>
+</body>
+</html>
