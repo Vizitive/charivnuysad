@@ -2,7 +2,6 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
 <title>Новини</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -203,7 +202,7 @@
 <body>
 <header>
     Новини
-    <div class="back-text" onclick="history.back()">Назад</div>
+    <a href="index.html" class="back-text">Назад</a>
 </header>
 
 <div class="container">
@@ -215,6 +214,7 @@
         <span class="page-btn active-page" data-page="1">1</span>
         <span class="page-btn" data-page="2">2</span>
         <span class="page-btn" data-page="3">3</span>
+        <span class="page-btn" data-page="4">4</span>
     </div>
 </div>
 
@@ -223,6 +223,13 @@
 <script>
 const pages = {
   1: [
+    {
+      id: 9,
+      photo: "news/n129.jpg",
+      title: "День карнавалу",
+      date: "12.02.2026",
+      text: "12 лютого у Тийглаському ЗДО «Чарівний сад» відзначили День карнавалу."
+    },
     {
       id: 0,
       photo: "news/n89.jpg",
@@ -236,13 +243,6 @@ const pages = {
       title: "Різдвяний концерт",
       date: "24.12.2025",
       text: "24 грудня 2025 року в Тийглаському ЗДО «Чарівний сад» відбувся святковий концерт, де звучали різдвяні пісні, колядки та віршики."
-    },
-    {
-      id: 2,
-      photo: "news/n2.jpg",
-      title: "День Святого Миколая",
-      date: "05.12.2025",
-      text: "5 грудня в Тийглаському ЗДО «Чарівний сад» святкували День Святого Миколая."
     }
   ],
 
@@ -286,11 +286,21 @@ const pages = {
       text: "23 жовтня 2025 р. у Тийглаському ЗДО «Чарівний сад» відбулося осіннє свято «Золота осінь»."
     },
     {
-      id: 8,
-      photo: "photos_v/v19.jpg",
-      title: "Виховний захід: «Сортування сміття - це важливо»",
-      date: "19.09.2025",
-      text: "Діти та працівники Тийгласького ЗДО долучилися до ЕКОМАРАФОНУ до Всесвітнього Дня Землі."
+      id: 10,
+      photo: "news/n130.jpg",
+      title: "Осінній ярмарок",
+      date: "10.10.2025",
+      text: "У Тийглаському ЗДО «Чарівний сад» відбувся осінній ярмарок — з піснями, смаколиками та гарним настроєм."
+    }
+  ],
+
+  4: [
+    {
+      id: 2,
+      photo: "news/n2.jpg",
+      title: "День Святого Миколая",
+      date: "05.12.2025",
+      text: "5 грудня в Тийглаському ЗДО «Чарівний сад» святкували День Святого Миколая."
     }
   ]
 };
@@ -347,6 +357,3 @@ loadPage(1);
 
 </body>
 </html>
-
-
-
