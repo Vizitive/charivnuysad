@@ -23,7 +23,7 @@ body{
 }
 
 .page-header{
-  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  background: linear-gradient(90deg, #38d86b, #2fe0c5);
   color:white;
   padding: 26px 20px 34px;
   position: relative;
@@ -63,7 +63,6 @@ body{
   color:#444;
 }
 
-
 .docs-grid{
   max-width: 1100px;
   margin: 0 auto;
@@ -71,7 +70,6 @@ body{
   grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 22px;
 }
-
 
 .doc-card{
   text-decoration:none;
@@ -81,43 +79,64 @@ body{
   padding:18px;
   border-radius:20px;
   color:white;
-
-  background: linear-gradient(180deg, #43e97b, #38f9d7);
-
-
-  box-shadow:0 8px 18px rgba(0,0,0,0.22);
-  transition: all 0.25s;
   text-align:left;
+  position: relative;
+  overflow: hidden;
+
+  /* Покращений градієнт */
+  background: linear-gradient(135deg, #2fcf6e 0%, #32e2b8 50%, #39b8ff 100%);
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.20);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Легкий блиск поверх картки */
+.doc-card::before{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-20%;
+  width:70%;
+  height:180%;
+  background: rgba(255,255,255,0.12);
+  transform: rotate(20deg);
+  pointer-events:none;
 }
 
 .doc-card:hover{
   transform: translateY(-5px) scale(1.03);
-  box-shadow:0 14px 30px rgba(0,0,0,0.30);
+  box-shadow:0 16px 32px rgba(0,0,0,0.28);
 }
-
 
 .pdf-icon{
   width:52px;
   height:52px;
   border-radius:14px;
-  background: rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.16);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900;
-  font-size:14px;
-  letter-spacing:0.5px;
+  flex-shrink:0;
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 1px 4px rgba(255,255,255,0.15);
+}
+
+.pdf-icon img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  display:block;
 }
 
 .doc-title{
   font-weight:800;
   font-size:16px;
   line-height:1.25;
+  text-shadow:0 1px 3px rgba(0,0,0,0.2);
 }
 
-
 .page-footer{
-  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  background: linear-gradient(90deg, #38d86b, #2fe0c5);
   color:white;
   text-align:center;
   padding:18px;
@@ -161,23 +180,31 @@ body{
 <div class="docs-grid">
 
 <a class="doc-card" href="статут.pdf" target="_blank">
-<div class="pdf-icon">PDF</div>
-<div class="doc-title">Статут закладу</div>
+  <div class="pdf-icon">
+    <img src="PDF.png" alt="PDF">
+  </div>
+  <div class="doc-title">Статут закладу</div>
 </a>
 
 <a class="doc-card" href="zakon-ukraini-pro-doshkilnu-osvitu.pdf" target="_blank">
-<div class="pdf-icon">PDF</div>
-<div class="doc-title">Закону України «Про дошкільну освіту»</div>
+  <div class="pdf-icon">
+    <img src="PDF.png" alt="PDF">
+  </div>
+  <div class="doc-title">Закону України «Про дошкільну освіту»</div>
 </a>
 
 <a class="doc-card" href="list_mon_shhodo_organizaciyi_doskilnoyi_osviti_ditei_u_2025_2026.pdf" target="_blank">
-<div class="pdf-icon">PDF</div>
-<div class="doc-title">Лист МОН щодо організації дошкільної освіти дітей у 2025–2026</div>
+  <div class="pdf-icon">
+    <img src="PDF.png" alt="PDF">
+  </div>
+  <div class="doc-title">Лист МОН щодо організації дошкільної освіти дітей у 2025–2026</div>
 </a>
 
 <a class="doc-card" href="svidotstvo.pdf" target="_blank">
-<div class="pdf-icon">PDF</div>
-<div class="doc-title">Свідоцтво про державну реєстрацію юридичної особи</div>
+  <div class="pdf-icon">
+    <img src="PDF.png" alt="PDF">
+  </div>
+  <div class="doc-title">Свідоцтво про державну реєстрацію юридичної особи</div>
 </a>
 
 </div>
@@ -190,7 +217,3 @@ body{
 
 </body>
 </html>
-
-
-
-
