@@ -83,47 +83,50 @@ body{
   position: relative;
   overflow: hidden;
 
-  /* Покращений градієнт */
-  background: linear-gradient(135deg, #2fcf6e 0%, #32e2b8 50%, #39b8ff 100%);
+  background: linear-gradient(135deg,
+    #49d68a 0%,
+    #44dbc0 52%,
+    #43c4ee 100%
+  );
 
-  box-shadow: 0 10px 22px rgba(0,0,0,0.20);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.16);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Легкий блиск поверх картки */
 .doc-card::before{
   content:"";
   position:absolute;
-  top:-40%;
-  left:-20%;
-  width:70%;
-  height:180%;
-  background: rgba(255,255,255,0.12);
-  transform: rotate(20deg);
+  top:-35%;
+  left:-18%;
+  width:60%;
+  height:170%;
+  background: rgba(255,255,255,0.07);
+  transform: rotate(18deg);
   pointer-events:none;
 }
 
 .doc-card:hover{
-  transform: translateY(-5px) scale(1.03);
-  box-shadow:0 16px 32px rgba(0,0,0,0.28);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:0 14px 28px rgba(0,0,0,0.22);
 }
 
 .pdf-icon{
-  width:52px;
-  height:52px;
+  width:54px;
+  height:54px;
   border-radius:14px;
-  background: rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.14);
   display:flex;
   align-items:center;
   justify-content:center;
   flex-shrink:0;
   backdrop-filter: blur(2px);
-  box-shadow: inset 0 1px 4px rgba(255,255,255,0.15);
+  box-shadow: inset 0 1px 3px rgba(255,255,255,0.12);
+  padding: 4px;
 }
 
 .pdf-icon img{
-  width:34px;
-  height:34px;
+  width:100%;
+  height:100%;
   object-fit:contain;
   display:block;
 }
@@ -132,7 +135,7 @@ body{
   font-weight:800;
   font-size:16px;
   line-height:1.25;
-  text-shadow:0 1px 3px rgba(0,0,0,0.2);
+  text-shadow:0 1px 2px rgba(0,0,0,0.14);
 }
 
 .page-footer{
@@ -217,3 +220,4 @@ body{
 
 </body>
 </html>
+
