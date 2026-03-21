@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Педагогічний колектив</title>
+  <title>Педагогічний колектив — Чарівний сад</title>
   <style>
     * {
       box-sizing: border-box;
@@ -35,7 +35,6 @@
       margin-bottom: 40px;
     }
 
-    /* Текст "На головну" */
     .back-link {
       position: absolute;
       left: 25px;
@@ -67,8 +66,6 @@
       padding: 40px;
       position: relative;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      
-      /* Градієнтна рамка */
       border: 8px solid transparent;
       background-clip: padding-box;
     }
@@ -202,7 +199,7 @@
     }
 
     .staff-container {
-      background: linear-gradient(135deg, rgba(67, 233, 123, 0.1) 0%, rgba(56, 249, 215, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(67, 233, 123, 0.1), rgba(56, 249, 215, 0.1));
       border-radius: 20px;
       padding: 30px;
       margin: 35px 0;
@@ -213,21 +210,16 @@
     .staff-title {
       color: #2a7a4b;
       font-size: 26px;
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
-    
-    .staff-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #43e97b, #38f9d7);
-      border-radius: 3px;
+
+    /* Фото без обрізання */
+    .staff-image {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .staff-summary {
@@ -277,138 +269,64 @@
       font-size: 16px;
       color: white;
       margin-top: auto;
-      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-      font-weight: 500;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        font-size: 24px;
-        padding: 25px 10px;
-      }
-      
-      .back-link {
-        position: relative;
-        left: 0;
-        top: 0;
-        transform: none;
-        margin: 0 auto 15px;
-        display: inline-block;
-      }
-      
-      main {
-        padding: 0 15px;
-      }
-      
-      .content-container {
-        padding: 25px;
-      }
-      
-      .page-title {
-        font-size: 26px;
-      }
-      
-      .page-subtitle {
-        font-size: 19px;
-      }
-      
-      .intro-text {
-        padding: 15px;
-        font-size: 16px;
-      }
-      
-      .care-item {
-        padding: 15px 15px 15px 50px;
-      }
-      
-      .care-item::before {
-        left: 15px;
-        width: 25px;
-        height: 25px;
-        font-size: 14px;
-      }
-      
-      .staff-container {
-        padding: 20px;
-      }
-      
-      .staff-details {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .content-container {
-        padding: 20px;
-      }
-      
-      .page-title {
-        font-size: 22px;
-      }
-      
-      .page-subtitle {
-        font-size: 17px;
-      }
-      
-      .care-title {
-        font-size: 20px;
-      }
-      
-      .staff-title {
-        font-size: 22px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="back-link">← На головну</a>
-    Педагогічний колектив
-  </header>
+<header>
+  <a href="index.html" class="back-link">← На головну</a>
+  Педагогічний колектив
+</header>
 
-  <main>
-    <div class="content-container">
-      <h1 class="page-title">Педагогічний колектив</h1>
-      <div class="page-subtitle">«Ми створюємо наше майбутнє»</div>
+<main>
+  <div class="content-container">
 
-      <div class="intro-text">
-        <strong>Тийгласький ЗДО «Чарівний сад»</strong> — добрий, надійний, сучасний дошкільний навчальний заклад, що дбає про забезпечення права дітей на здобуття дошкільної освіти, створення кожній дитині рівних умов для успішного особистісного розвитку.
+    <h1 class="page-title">Педагогічний колектив</h1>
+    <div class="page-subtitle">«Ми створюємо наше майбутнє»</div>
+
+    <div class="intro-text">
+      <strong>Тийгласький ЗДО «Чарівний сад»</strong> - добрий, надійний, сучасний дошкільний навчальний заклад, що дбає про забезпечення права дітей на здобуття дошкільної освіти, створення кожній дитині рівних умов для успішного особистісного розвитку.
+    </div>
+
+    <div class="care-section">
+      <h3 class="care-title">Ми дбаємо:</h3>
+      <ul class="care-list">
+        <li class="care-item">про якісний розвиток виховання та навчання з урахуванням індивідуальних здібностей та нахилів;</li>
+        <li class="care-item">щоб діти були оточені любов'ю, увагою досвідчених педагогів, отримували належне медичне обслуговування та повноцінне харчування;</li>
+        <li class="care-item">про створення сприятливих умов для гармонійного та різнобічного розвитку особистості дитини, зміцнення психічного, фізичного та духовного здоров'я.</li>
+      </ul>
+    </div>
+
+    <div class="staff-container">
+      <h3 class="staff-title">Наш колектив</h3>
+
+      <img src="k.jpg" alt="Наш колектив" class="staff-image">
+
+      <div class="staff-summary">
+        У нашому закладі працює <strong>15 працівників</strong>, з них <strong>5 педагогів</strong>
       </div>
 
-      <div class="care-section">
-        <h3 class="care-title">Ми дбаємо:</h3>
-        <ul class="care-list">
-          <li class="care-item">про якісний розвиток виховання та навчання з урахуванням індивідуальних здібностей та нахилів;</li>
-          <li class="care-item">щоб діти були оточені любов'ю, увагою досвідчених педагогів, отримували належне медичне обслуговування та повноцінне харчування;</li>
-          <li class="care-item">про створення сприятливих умов для гармонійного та різнобічного розвитку особистості дитини, зміцнення психічного, фізичного та духовного здоров'я.</li>
-        </ul>
-      </div>
-
-      <div class="staff-container">
-        <h3 class="staff-title">Наш колектив</h3>
-        <div class="staff-summary">У нашому закладі працює <strong>15 працівників</strong>, з них <strong>5 педагогів</strong></div>
-        
-        <div class="staff-details">
-          <div class="staff-card">
-            <div class="staff-role">Завідувач</div>
-            <div class="staff-count">1</div>
-          </div>
-          <div class="staff-card">
-            <div class="staff-role">Вихователь</div>
-            <div class="staff-count">3</div>
-          </div>
-          <div class="staff-card">
-            <div class="staff-role">Музичний керівник</div>
-            <div class="staff-count">1</div>
-          </div>
+      <div class="staff-details">
+        <div class="staff-card">
+          <div class="staff-role">Завідувач</div>
+          <div class="staff-count">1</div>
+        </div>
+        <div class="staff-card">
+          <div class="staff-role">Вихователь</div>
+          <div class="staff-count">3</div>
+        </div>
+        <div class="staff-card">
+          <div class="staff-role">Музичний керівник</div>
+          <div class="staff-count">1</div>
         </div>
       </div>
     </div>
-  </main>
 
-  <footer>© 2025 Тийгласький ЗДО "Чарівний сад"</footer>
+  </div>
+</main>
+
+<footer>© 2025 Тийгласький ЗДО "Чарівний сад"</footer>
 
 </body>
 </html>
-
