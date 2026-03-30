@@ -216,113 +216,68 @@
         <span class="page-btn" data-page="2">2</span>
         <span class="page-btn" data-page="3">3</span>
         <span class="page-btn" data-page="4">4</span>
+		<span class="page-btn" data-page="5">5</span>
+		<span class="page-btn" data-page="6">6</span>
     </div>
 </div>
 
 <footer>© 2025 Тийгласький ЗДО "Чарівний сад"</footer>
 
 <script>
-const pages = {
-  1: [
-    {
-      id: 12,
-      photo: "news/n135.jpg",
-      title: "Міжнародний день рідної мови",
-      date: "21.02.2026",
-      text: "21 лютого у Тийглаському ЗДО «Чарівний сад» відзначили Міжнародний день рідної мови."
-    },
-    {
-      id: 11,
-      photo: "news/n134.jpg",
-      title: "День Державного герба України",
-      date: "20.02.2026",
-      text: "20 лютого у Тийглаському ЗДО «Чарівний сад» відзначили День Державного герба України."
-    },
-    {
-      id: 10,
-      photo: "news/n130.jpg",
-      title: "День єднання",
-      date: "16.02.2026",
-      text: "16 лютого у Тийглаському ЗДО «Чарівний сад» відзначили День єднання."
-    }
-  ],
+const eventsData = [
+  { id: 17, photo: "news/n224a.jpg", title: "Всесвітній день сну", date: "19.03.2026", text: "Піжамна вечірка у садочку." },
+  { id: 16, photo: "news/n219a.jpg", title: "Міжнародний день харчування! «Учимося варити борщ»", date: "12.03.2026", text: "Діти в ігровій формі знайомилися з процесом приготування борщу." },
+  { id: 15, photo: "news/n205a.jpg", title: "Проект «Город на підвіконні»", date: "10.03.2026", text: "Вихованці висаджували рослини та спостерігали за їх ростом." },
+  { id: 14, photo: "news/n193a.jpg", title: "День Державного Гімну України", date: "10.03.2026", text: "Діти слухали та вивчали Гімн України як символ держави." },
+  { id: 13, photo: "news/n179a.jpg", title: "Гуманне ставлення до тварин", date: "08.03.2026", text: "Проведено виховну годину про турботу та любов до тварин." },
+  { id: 12, photo: "news/n135.jpg", title: "Міжнародний день рідної мови", date: "21.02.2026", text: "Діти вивчали рідну мову через ігри та вірші." },
+  { id: 11, photo: "news/n134.jpg", title: "День Державного герба України", date: "20.02.2026", text: "Ознайомлення з державними символами України." },
+  { id: 10, photo: "news/n130.jpg", title: "День єднання", date: "16.02.2026", text: "Свято дружби, єдності та підтримки." },
+  { id: 9, photo: "news/n129.jpg", title: "День карнавалу", date: "12.02.2026", text: "Веселе свято з костюмами та конкурсами." },
+  { id: 0, photo: "news/n89.jpg", title: "День Соборності України", date: "22.01.2026", text: "Свято єдності українського народу." },
+  { id: 1, photo: "news/n1.jpg", title: "Різдвяний концерт", date: "24.12.2025", text: "Святковий виступ з піснями та колядками." },
+  { id: 2, photo: "news/n2.jpg", title: "День Святого Миколая", date: "05.12.2025", text: "Діти отримали подарунки та гарний настрій." },
+  { id: 3, photo: "news/n4.jpg", title: "Протидія булінгу", date: "26.11.2025", text: "Бесіда про добро, повагу та дружбу." },
+  { id: 4, photo: "news/n5.jpg", title: "День захисту дітей", date: "20.11.2025", text: "Свято радості та дитинства." },
+  { id: 5, photo: "photos_v/v20.jpg", title: "Тиждень безпеки дорожнього руху", date: "13.11.2025", text: "Діти вчили правила дорожнього руху." },
+  { id: 6, photo: "news/n3.jpg", title: "День української мови", date: "27.10.2025", text: "Розвиток любові до рідної мови." },
+  { id: 7, photo: "photos_v/v5.jpg", title: "Свято «Золота осінь»", date: "23.10.2025", text: "Осіннє свято з піснями та танцями." }
+];
 
-  2: [
-    {
-      id: 9,
-      photo: "news/n129.jpg",
-      title: "День карнавалу",
-      date: "12.02.2026",
-      text: "12 лютого у Тийглаському ЗДО «Чарівний сад» відзначили День карнавалу."
-    },
-    {
-      id: 0,
-      photo: "news/n89.jpg",
-      title: "День Соборності України",
-      date: "22.01.2026",
-      text: "22 січня у Тийглаському ЗДО «Чарівний сад» відзначили День Соборності України — свято єдності, дружби та взаємоповаги."
-    },
-    {
-      id: 1,
-      photo: "news/n1.jpg",
-      title: "Різдвяний концерт",
-      date: "24.12.2025",
-      text: "24 грудня 2025 року в Тийглаському ЗДО «Чарівний сад» відбувся святковий концерт, де звучали різдвяні пісні, колядки та віршики."
-    }
-  ],
+// конвертація дати
+function parseDate(str) {
+  const [day, month, year] = str.split(".").map(Number);
+  return new Date(year, month - 1, day);
+}
 
-  3: [
-    {
-      id: 2,
-      photo: "news/n2.jpg",
-      title: "День Святого Миколая",
-      date: "05.12.2025",
-      text: "5 грудня в Тийглаському ЗДО «Чарівний сад» святкували День Святого Миколая."
-    },
-    {
-      id: 3,
-      photo: "news/n4.jpg",
-      title: "Протидія булінгу",
-      date: "26.11.2025",
-      text: "26 листопада у Тийглаському ЗДО «Чарівний сад» проведено виховну годину «Що таке «добре», а що таке «погано»»."
-    },
-    {
-      id: 4,
-      photo: "news/n5.jpg",
-      title: "День захисту дітей",
-      date: "20.11.2025",
-      text: "20 листопада в Тийглаському ЗДО «Чарівний сад» відбулося одне із найбільш дитячих свят у світі — свято дитинства, захисту життя та радості."
-    }
-  ],
+// сортування (нові зверху)
+eventsData.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
-  4: [
-    {
-      id: 5,
-      photo: "photos_v/v20.jpg",
-      title: "Тиждень безпеки дорожнього руху",
-      date: "13.11.2025",
-      text: "13 листопада проведено інформаційно-просвітницький захід «Засвітись у темряві»."
-    },
-    {
-      id: 6,
-      photo: "news/n3.jpg",
-      title: "День української мови та писемності",
-      date: "27.10.2025",
-      text: "27 жовтня вихованці Тийгласького ЗДО продемонстрували свою любов до української мови."
-    },
-    {
-      id: 7,
-      photo: "photos_v/v5.jpg",
-      title: "Свято «Золота осінь»",
-      date: "23.10.2025",
-      text: "23 жовтня 2025 р. у Тийглаському ЗДО «Чарівний сад» відбулося осіннє свято «Золота осінь»."
-    }
-  ]
-};
+// розбивка на сторінки
+const perPage = 3;
+const pages = [];
+
+for (let i = 0; i < eventsData.length; i += perPage) {
+  pages.push(eventsData.slice(i, i + perPage));
+}
+
+// генерація кнопок
+const pagination = document.querySelector(".pagination");
+pagination.innerHTML = "";
+
+pages.forEach((_, i) => {
+  const btn = document.createElement("span");
+  btn.className = "page-btn";
+  btn.dataset.page = i + 1;
+  btn.textContent = i + 1;
+
+  btn.addEventListener("click", () => loadPage(i + 1));
+  pagination.appendChild(btn);
+});
 
 function renderEvents(page){
   const box = document.getElementById("events");
-  const data = pages[page];
+  const data = pages[page - 1];
   if (!data) return;
 
   box.innerHTML = data.map(event => `
@@ -342,14 +297,12 @@ function renderEvents(page){
 
 function setActivePage(page){
   document.querySelectorAll(".page-btn").forEach(btn => {
-    const p = Number(btn.dataset.page);
-    btn.classList.toggle("active-page", p === page);
+    btn.classList.toggle("active-page", Number(btn.dataset.page) === page);
   });
 }
 
 function loadPage(page){
   const box = document.getElementById("events");
-  if (!pages[page]) return;
 
   box.classList.add("fade-out");
 
@@ -360,13 +313,10 @@ function loadPage(page){
     box.classList.remove("fade-out");
     box.classList.add("fade-in");
     setTimeout(() => box.classList.remove("fade-in"), 400);
-  }, 250);
+  }, 200);
 }
 
-document.querySelectorAll(".page-btn").forEach(btn => {
-  btn.addEventListener("click", () => loadPage(Number(btn.dataset.page)));
-});
-
+// старт
 loadPage(1);
 </script>
 
