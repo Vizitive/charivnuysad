@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="192x192" href="Logo6.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мова освітнього процесу — Чарівний сад</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f1fff4 0%, #e6f7ea 100%);
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin: 5px 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      position: absolute;
+	  font-size: 20px;
+      left: 5px;
+      top: 30px;
+    }
+    
+    .back-button:hover {
+      color: #1b4d2e;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      padding: 40px;
+      flex: 1;
+    }
+
+    .content-container {
+      background: white;
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 8px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+
+    .content-container::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      background: linear-gradient(90deg, #43e97b, #38f9d7, #43e97b);
+      background-size: 300% 100%;
+      border-radius: 30px;
+      z-index: -1;
+      animation: gradientBorder 6s ease infinite;
+    }
+
+    @keyframes gradientBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h2 {
+      text-align: center;
+      color: #1a5c3a;
+      font-size: 28px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #e1f7e8;
+      padding-bottom: 15px;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 22px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    li {
+      margin-bottom: 12px;
+      font-size: 17px;
+      padding-left: 35px;
+      position: relative;
+    }
+
+    li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #43e97b;
+      font-weight: bold;
+    }
+
+    strong {
+      color: #1d5d36;
+    }
+
+    .highlight-box {
+      background: #f8fffa;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+      border-left: 5px solid #43e97b;
+      font-size: 17px;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      text-align: center;
+      padding: 20px;
+      color: white;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      header { font-size: 24px; }
+      main { padding: 20px; }
+      .content-container { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-button">← Назад</a>
+  Мова освітнього процесу
+</header>
+
+<main>
+  <div class="content-container">
+    <h2>Організація мовного середовища у закладі</h2>
+
+    <p>
+      У Тийглаському закладі дошкільної освіти «Чарівний сад» освітній процес 
+      організовується з урахуванням мовних особливостей регіону та потреб вихованців.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Мовами освітнього процесу є:</strong> українська мова та угорська мова.
+    </div>
+
+    <p>
+      Освітня діяльність закладу здійснюється відповідно до чинного законодавства України 
+      та спрямована на формування мовної компетентності дітей, розвиток їхнього мислення, 
+      комунікативних навичок та загальної культури мовлення.
+    </p>
+
+    <p>
+      Використання мов у закладі регулюється такими нормативно-правовими актами:
+    </p>
+
+    <ul>
+      <li>Конституція України</li>
+      <li>Закон України «Про освіту»</li>
+      <li>Закон України «Про державну мову»</li>
+      <li>Закон України «Про забезпечення функціонування української мови як державної»</li>
+      <li>Статут закладу дошкільної освіти</li>
+    </ul>
+
+    <p>
+      Українська мова використовується як державна мова у всіх сферах освітнього процесу, 
+      діловодстві та офіційній документації закладу. Водночас угорська мова застосовується 
+      у навчально-виховній роботі з дітьми відповідно до мовного середовища та потреб сімей.
+    </p>
+
+    <p>
+      Такий підхід забезпечує гармонійний розвиток особистості дитини, сприяє збереженню 
+      культурної ідентичності та формує повагу до мовної різноманітності.
+    </p>
+
+    <p>
+      Заклад дошкільної освіти створює сприятливі умови для всебічного розвитку дітей, 
+      незалежно від їх мовного середовища, забезпечуючи рівний доступ до якісної освіти.
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  © 2025 Тийгласький ЗДО «Чарівний сад»
+</footer>
+
+</body>
+</html>
