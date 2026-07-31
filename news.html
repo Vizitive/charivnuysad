@@ -144,39 +144,137 @@
         background: linear-gradient(90deg, #38d76b, #2ce7c5);
     }
 
+    /* ===== НОВА СУЧАСНА ПАГІНАЦІЯ ===== */
     .pagination {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
         margin: 40px 0 20px;
-        padding-top: 20px;
-        border-top: 1px solid #e8f8ef;
+        padding-top: 25px;
+        border-top: 2px solid #e8f8ef;
+        flex-wrap: wrap;
     }
 
     .page-btn {
-        padding: 10px 22px;
-        margin: 5px;
-        border-radius: 6px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-        background: #f0faf5;
+        font-size: 15px;
+        font-weight: 600;
+        background: transparent;
         color: #0e744e;
-        border: 1px solid #c9f0db;
-        transition: all 0.2s;
+        border: 2px solid transparent;
+        transition: all 0.25s ease;
         user-select: none;
-        display: inline-block;
+        position: relative;
     }
 
-    .page-btn:hover {
-        background: linear-gradient(90deg, #e8fcf0, #e0faf8);
-        border-color: #43e97b;
+    .page-btn:hover:not(.active-page):not(.dots) {
+        background: #e8fcf0;
+        border-color: #c9f0db;
+        transform: scale(1.05);
     }
 
-    .active-page {
-        background: linear-gradient(90deg, #43e97b, #38f9d7);
+    .page-btn.active-page {
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
         color: white;
         border-color: #43e97b;
+        box-shadow: 0 4px 15px rgba(67, 233, 123, 0.35);
+        transform: scale(1.1);
         pointer-events: none;
-        box-shadow: 0 2px 5px rgba(67, 233, 123, 0.2);
+    }
+
+    .page-btn.active-page::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px solid rgba(67, 233, 123, 0.2);
+        animation: pulse-ring 1.5s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .page-btn.dots {
+        width: 30px;
+        cursor: default;
+        pointer-events: none;
+        color: #aaa;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        background: transparent;
+        border: none;
+    }
+
+    .page-btn.arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #f0faf5;
+        border: 1px solid #c9f0db;
+        color: #0e744e;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page-btn.arrow:hover:not(.disabled) {
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
+        color: white;
+        border-color: #43e97b;
+        transform: scale(1.08);
+        box-shadow: 0 4px 12px rgba(67, 233, 123, 0.25);
+    }
+
+    .page-btn.arrow.disabled {
+        opacity: 0.25;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .page-counter {
+        font-size: 14px;
+        color: #888;
+        margin: 0 6px;
+        font-weight: 500;
+        background: #f5fbf7;
+        padding: 6px 16px;
+        border-radius: 20px;
+        border: 1px solid #e8f8ef;
+        letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 768px) {
+        .event-content { flex-direction: column; }
+        .event-photo { width: 100%; height: 250px; }
+        header { font-size: 26px; padding: 20px; }
+        .back-text { font-size: 16px; left: 15px; }
+        h2 { font-size: 24px; }
+        .event-title { font-size: 22px; }
+        .page-btn { width: 38px; height: 38px; font-size: 13px; }
+        .page-btn.arrow { width: 38px; height: 38px; font-size: 15px; }
+        .page-counter { font-size: 12px; padding: 4px 12px; }
+        .pagination { gap: 5px; }
+    }
+
+    @media (max-width: 480px) {
+        .page-btn { width: 34px; height: 34px; font-size: 12px; }
+        .page-btn.arrow { width: 34px; height: 34px; font-size: 13px; }
+        .page-btn.dots { width: 20px; font-size: 14px; }
+        .page-counter { font-size: 11px; padding: 3px 10px; }
+        .pagination { gap: 3px; }
     }
 
     footer {
@@ -187,15 +285,6 @@
         color: white;
         font-weight: normal;
         margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-        .event-content { flex-direction: column; }
-        .event-photo { width: 100%; height: 250px; }
-        header { font-size: 26px; padding: 20px; }
-        .back-text { font-size: 16px; left: 15px; }
-        h2 { font-size: 24px; }
-        .event-title { font-size: 22px; }
     }
 </style>
 </head>
@@ -211,113 +300,133 @@
 
     <div id="events" class="events-container"></div>
 
-    <div class="pagination">
-        <span class="page-btn active-page" data-page="1">1</span>
-        <span class="page-btn" data-page="2">2</span>
-        <span class="page-btn" data-page="3">3</span>
-        <span class="page-btn" data-page="4">4</span>
-		<span class="page-btn" data-page="5">5</span>
-		<span class="page-btn" data-page="6">6</span>
-    </div>
+    <div id="pagination" class="pagination"></div>
 </div>
 
 <footer>© 2025 Тийгласький ЗДО "Чарівний сад"</footer>
 
 <script>
 const eventsData = [
-  { id: 18, photo: "news/n238a.jpg", title: "Всесвітній день води", date: "23.03.2026", text: "Святкування Всесвітнього дня води." },
-  { id: 17, photo: "news/n224a.jpg", title: "Всесвітній день сну", date: "19.03.2026", text: "Піжамна вечірка у садочку." },
-  { id: 16, photo: "news/n219a.jpg", title: "Міжнародний день харчування! «Учимося варити борщ»", date: "12.03.2026", text: "Діти в ігровій формі знайомилися з процесом приготування борщу." },
-  { id: 15, photo: "news/n205a.jpg", title: "Проект «Город на підвіконні»", date: "10.03.2026", text: "Вихованці висаджували рослини та спостерігали за їх ростом." },
-  { id: 14, photo: "news/n193a.jpg", title: "День Державного Гімну України", date: "10.03.2026", text: "Діти слухали та вивчали Гімн України як символ держави." },
-  { id: 13, photo: "news/n179a.jpg", title: "Гуманне ставлення до тварин", date: "08.03.2026", text: "Проведено виховну годину про турботу та любов до тварин." },
-  { id: 12, photo: "news/n135.jpg", title: "Міжнародний день рідної мови", date: "21.02.2026", text: "Діти вивчали рідну мову через ігри та вірші." },
-  { id: 11, photo: "news/n134.jpg", title: "День Державного герба України", date: "20.02.2026", text: "Ознайомлення з державними символами України." },
-  { id: 10, photo: "news/n130.jpg", title: "День єднання", date: "16.02.2026", text: "Свято дружби, єдності та підтримки." },
-  { id: 9, photo: "news/n129.jpg", title: "День карнавалу", date: "12.02.2026", text: "Веселе свято з костюмами та конкурсами." },
-  { id: 0, photo: "news/n89.jpg", title: "День Соборності України", date: "22.01.2026", text: "Свято єдності українського народу." },
-  { id: 1, photo: "news/n1.jpg", title: "Різдвяний концерт", date: "24.12.2025", text: "Святковий виступ з піснями та колядками." },
-  { id: 2, photo: "news/n2.jpg", title: "День Святого Миколая", date: "05.12.2025", text: "Діти отримали подарунки та гарний настрій." },
-  { id: 3, photo: "news/n4.jpg", title: "Протидія булінгу", date: "26.11.2025", text: "Бесіда про добро, повагу та дружбу." },
-  { id: 4, photo: "news/n5.jpg", title: "День захисту дітей", date: "20.11.2025", text: "Свято радості та дитинства." },
-  { id: 5, photo: "photos_v/v20.jpg", title: "Тиждень безпеки дорожнього руху", date: "13.11.2025", text: "Діти вчили правила дорожнього руху." },
-  { id: 6, photo: "news/n3.jpg", title: "День української мови", date: "27.10.2025", text: "Розвиток любові до рідної мови." },
-  { id: 7, photo: "photos_v/v5.jpg", title: "Свято «Золота осінь»", date: "23.10.2025", text: "Осіннє свято з піснями та танцями." }
+	{ photo:"news/n293a.jpg", title:"Всесвітній день землі", date:"22.04.2026", text:"З метою бережливого ставлення до землі у Тийглаському ЗДО була проведена виховна бесіда про землю. Під час бесіди діти мали змогу розширити знання про землю та батьківщину, розвивати мислення та мовлення.", page:"event21.html" },
+    { photo:"news/n279.jpg", title:"Великдень", date:"5.04.2026", text:" Світлий Великдень у нашому садочку!", page:"event21.html" },
+	{ photo:"news/n256a.jpg", title:"Міжнародний день птахів", date:"1.04.2026", text:"Свято весни та крилатих друзів у нашому садочку!", page:"event20.html" },
+    { photo:"news/n264a.jpg", title:"Виховна година «Подорож планетою Земля»", date:"27.03.2026", text:"Проведено виховну годину про нашу планету.", page:"event19.html" },
+    { photo:"news/n238a.jpg", title:"Всесвітній день води", date:"23.03.2026", text:"Святкування Всесвітнього дня води.", page:"event18.html" },
+    { photo:"news/n224a.jpg", title:"Всесвітній день сну", date:"19.03.2026", text:"Піжамна вечірка у садочку.", page:"event17.html" },
+    { photo:"news/n219a.jpg", title:"Міжнародний день харчування! «Учимося варити борщ»", date:"12.03.2026", text:"Діти в ігровій формі знайомилися з процесом приготування борщу.", page:"event16.html" },
+    { photo:"news/n205a.jpg", title:"Проект «Город на підвіконні»", date:"10.03.2026", text:"Вихованці висаджували рослини та спостерігали за їх ростом.", page:"event15.html" },
+    { photo:"news/n193a.jpg", title:"День Державного Гімну України", date:"10.03.2026", text:"Діти слухали та вивчали Гімн України як символ держави.", page:"event14.html" },
+    { photo:"news/n179a.jpg", title:"Гуманне ставлення до тварин", date:"08.03.2026", text:"Проведено виховну годину про турботу та любов до тварин.", page:"event13.html" },
+    { photo:"news/n135.jpg", title:"Міжнародний день рідної мови", date:"21.02.2026", text:"Діти вивчали рідну мову через ігри та вірші.", page:"event12.html" },
+    { photo:"news/n134.jpg", title:"День Державного герба України", date:"20.02.2026", text:"Ознайомлення з державними символами України.", page:"event11.html" },
+    { photo:"news/n130.jpg", title:"День єднання", date:"16.02.2026", text:"Свято дружби, єдності та підтримки.", page:"event10.html" },
+    { photo:"news/n129.jpg", title:"День карнавалу", date:"12.02.2026", text:"Веселе свято з костюмами та конкурсами.", page:"event9.html" },
+    { photo:"news/n89.jpg", title:"День Соборності України", date:"22.01.2026", text:"Свято єдності українського народу.", page:"event0.html" },
+    { photo:"news/n1.jpg", title:"Різдвяний концерт", date:"24.12.2025", text:"Святковий виступ з піснями та колядками.", page:"event1.html" },
+    { photo:"news/n2.jpg", title:"День Святого Миколая", date:"05.12.2025", text:"Діти отримали подарунки та гарний настрій.", page:"event2.html" },
+    { photo:"news/n4.jpg", title:"Протидія булінгу", date:"26.11.2025", text:"Бесіда про добро, повагу та дружбу.", page:"event3.html" },
+    { photo:"news/n5.jpg", title:"День захисту дітей", date:"20.11.2025", text:"Свято радості та дитинства.", page:"event4.html" },
+    { photo:"photos_v/v20.jpg", title:"Тиждень безпеки дорожнього руху", date:"13.11.2025", text:"Діти вчили правила дорожнього руху.", page:"event5.html" },
+    { photo:"news/n3.jpg", title:"День української мови", date:"27.10.2025", text:"Розвиток любові до рідної мови.", page:"event6.html" },
+    { photo:"photos_v/v5.jpg", title:"Свято «Золота осінь»", date:"23.10.2025", text:"Осіннє свято з піснями та танцями.", page:"event7.html" }
 ];
 
-// конвертація дати
 function parseDate(str) {
-  const [day, month, year] = str.split(".").map(Number);
-  return new Date(year, month - 1, day);
+    const [d, m, y] = str.split(".").map(Number);
+    return new Date(y, m - 1, d);
 }
 
-// сортування (нові зверху)
 eventsData.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
-// розбивка на сторінки
 const perPage = 3;
-const pages = [];
+const totalPages = Math.ceil(eventsData.length / perPage);
 
-for (let i = 0; i < eventsData.length; i += perPage) {
-  pages.push(eventsData.slice(i, i + perPage));
-}
+function renderEvents(page) {
+    const box = document.getElementById("events");
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
 
-// генерація кнопок
-const pagination = document.querySelector(".pagination");
-pagination.innerHTML = "";
-
-pages.forEach((_, i) => {
-  const btn = document.createElement("span");
-  btn.className = "page-btn";
-  btn.dataset.page = i + 1;
-  btn.textContent = i + 1;
-
-  btn.addEventListener("click", () => loadPage(i + 1));
-  pagination.appendChild(btn);
-});
-
-function renderEvents(page){
-  const box = document.getElementById("events");
-  const data = pages[page - 1];
-  if (!data) return;
-
-  box.innerHTML = data.map(event => `
-    <div class="event-item">
-      <div class="event-content">
-        <img class="event-photo" src="${event.photo}" alt="${event.title}">
-        <div class="event-info">
-          <div class="event-date">${event.date}</div>
-          <div class="event-title">${event.title}</div>
-          <div class="event-text">${event.text}</div>
-          <a class="details-btn" href="event${event.id}.html">Детальніше</a>
+    box.innerHTML = eventsData.slice(start, end).map(event => `
+        <div class="event-item">
+            <div class="event-content">
+                <img class="event-photo" src="${event.photo}" alt="${event.title}">
+                <div class="event-info">
+                    <div class="event-date">${event.date}</div>
+                    <div class="event-title">${event.title}</div>
+                    <div class="event-text">${event.text}</div>
+                    <a class="details-btn" href="${event.page}">Детальніше</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  `).join("");
+    `).join("");
 }
 
-function setActivePage(page){
-  document.querySelectorAll(".page-btn").forEach(btn => {
-    btn.classList.toggle("active-page", Number(btn.dataset.page) === page);
-  });
+function renderPagination(currentPage) {
+    const container = document.getElementById("pagination");
+    const maxVisible = 5;
+    let html = '';
+
+    // Стрілка вліво
+    html += `<span class="page-btn arrow ${currentPage === 1 ? 'disabled' : ''}" data-page="${currentPage - 1}">‹</span>`;
+
+    if (totalPages <= maxVisible + 2) {
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<span class="page-btn ${i === currentPage ? 'active-page' : ''}" data-page="${i}">${i}</span>`;
+        }
+    } else {
+        html += `<span class="page-btn ${1 === currentPage ? 'active-page' : ''}" data-page="1">1</span>`;
+
+        let startPage = Math.max(2, currentPage - 2);
+        let endPage = Math.min(totalPages - 1, currentPage + 2);
+
+        if (startPage > 2) {
+            html += `<span class="page-btn dots">…</span>`;
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<span class="page-btn ${i === currentPage ? 'active-page' : ''}" data-page="${i}">${i}</span>`;
+        }
+
+        if (endPage < totalPages - 1) {
+            html += `<span class="page-btn dots">…</span>`;
+        }
+
+        if (totalPages > 1) {
+            html += `<span class="page-btn ${totalPages === currentPage ? 'active-page' : ''}" data-page="${totalPages}">${totalPages}</span>`;
+        }
+    }
+
+    // Стрілка вправо
+    html += `<span class="page-btn arrow ${currentPage === totalPages ? 'disabled' : ''}" data-page="${currentPage + 1}">›</span>`;
+
+    // Лічильник сторінок
+    html += `<span class="page-counter">${currentPage} / ${totalPages}</span>`;
+
+    container.innerHTML = html;
+
+    container.querySelectorAll(".page-btn:not(.dots):not(.disabled)").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const page = Number(this.dataset.page);
+            if (page >= 1 && page <= totalPages) {
+                loadPage(page);
+            }
+        });
+    });
 }
 
-function loadPage(page){
-  const box = document.getElementById("events");
+function loadPage(page) {
+    const box = document.getElementById("events");
+    box.classList.add("fade-out");
 
-  box.classList.add("fade-out");
-
-  setTimeout(() => {
-    renderEvents(page);
-    setActivePage(page);
-
-    box.classList.remove("fade-out");
-    box.classList.add("fade-in");
-    setTimeout(() => box.classList.remove("fade-in"), 400);
-  }, 200);
+    setTimeout(() => {
+        renderEvents(page);
+        renderPagination(page);
+        box.classList.remove("fade-out");
+        box.classList.add("fade-in");
+        setTimeout(() => box.classList.remove("fade-in"), 400);
+    }, 200);
 }
 
-// старт
 loadPage(1);
 </script>
 
